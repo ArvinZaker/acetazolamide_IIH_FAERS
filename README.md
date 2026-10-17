@@ -12,7 +12,32 @@ From the repository root:
 FAERS_ARCHIVE=/path/to/FDA_FAERS_files Rscript --vanilla run_analysis.R
 ```
 
-Supply the 55 FDA quarterly ASCII ZIPs covering 2012 Q4 through 2026 Q2. The manuscript used the September 15, 2026 source snapshot. ZIP and member names are discovered case-insensitively. Source data are available from the [FDA quarterly data page](https://fis.fda.gov/extensions/FPD-QDE-FAERS/FPD-QDE-FAERS.html); no data are downloaded automatically. Different source snapshots may produce different results.
+## Download and store the FAERS inputs
+
+Download the **ASCII ZIP** for every quarter from **2012 Q4 through 2026 Q2**, inclusive (55 ZIPs), from the [FDA quarterly data files page](https://www.fda.gov/drugs/fdas-adverse-event-reporting-system-faers/fda-adverse-event-reporting-system-faers-latest-quarterly-data-files) and its linked [quarterly extract browser](https://fis.fda.gov/extensions/FPD-QDE-FAERS/FPD-QDE-FAERS.html). Quarterly releases are not cumulative, so the final quarter alone is insufficient. Use the ASCII archives, not XML files or dashboard exports.
+
+Keep the downloaded ZIPs **compressed and unmodified**, with one copy of each quarter directly inside a single folder outside this repository. Do not put them in year-specific subfolders, rename them to omit the year/quarter, or remove files from inside the archives. For example:
+
+```text
+/path/to/FDA_FAERS_files/
+├── faers_ascii_2012q4.zip
+├── faers_ascii_2013q1.zip
+├── ...
+├── faers_ascii_2026q1.zip
+└── faers_ascii_2026q2.zip
+```
+
+Retain all bundled tables and any `Deleted/DELETE*.txt` files. The scripts read directly from the ZIPs, discover ZIP/member names case-insensitively, apply the available deletion lists, and select the latest case versions. No manual extraction, table concatenation, or editing is required. Avoid duplicate downloads such as two ZIPs for the same quarter; the pipeline requires exactly one archive for each of the 55 study quarters.
+
+Set `FAERS_ARCHIVE` to the **folder containing the ZIPs**, not to an individual ZIP or the repository folder. Quote paths containing spaces. From the repository root, run:
+
+```sh
+FAERS_ARCHIVE="/path/to/FDA_FAERS_files" Rscript --vanilla run_analysis.R
+```
+
+The manuscript used the September 15, 2026 source snapshot. Preserve your downloaded originals and record their download date; later replacement releases or different source snapshots may produce different results. The scripts do not download or update source files automatically. Raw ZIPs belong outside the repository; generated report-level checkpoints remain in the Git-ignored `data/` folder. After extraction, `results/tables/01_archive_manifest.csv` records the quarter and source filename used.
+
+## Rerun prepared data
 
 The first two stages select the latest report versions and prepare linked study records. They can take substantial time and memory. After those stages have completed, rerun downstream analyses with:
 
