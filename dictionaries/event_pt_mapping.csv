@@ -1,0 +1,41 @@
+pt,family,primary_composite,disease_marker
+Paraesthesia,common_tolerability,1,0
+Dysgeusia,common_tolerability,1,0
+Fatigue,common_tolerability,1,0
+Asthenia,common_tolerability,1,0
+Nausea,common_tolerability,1,0
+Vomiting,common_tolerability,1,0
+Diarrhoea,common_tolerability,1,0
+Dizziness,common_tolerability,1,0
+Tinnitus,common_tolerability,1,0
+Cognitive disorder,neurologic_cognitive,1,0
+Memory impairment,neurologic_cognitive,1,0
+Disturbance in attention,neurologic_cognitive,1,0
+Confusional state,neurologic_cognitive,1,0
+Polyuria,common_tolerability,1,0
+Pollakiuria,common_tolerability,1,0
+Metabolic acidosis,metabolic_electrolyte,0,0
+Acidosis,metabolic_electrolyte,0,0
+Blood bicarbonate decreased,metabolic_electrolyte,0,0
+Hypokalaemia,metabolic_electrolyte,0,0
+Hyponatraemia,metabolic_electrolyte,0,0
+Nephrolithiasis,renal,0,0
+Renal impairment,renal,0,0
+Acute kidney injury,renal,0,0
+Hepatic failure,hepatic,0,0
+Hepatic function abnormal,hepatic,0,0
+Stevens-Johnson syndrome,hematologic_hypersensitivity,0,0
+Toxic epidermal necrolysis,hematologic_hypersensitivity,0,0
+Anaphylactic reaction,hematologic_hypersensitivity,0,0
+Thrombocytopenia,hematologic_hypersensitivity,0,0
+Aplastic anaemia,hematologic_hypersensitivity,0,0
+Vision blurred,ocular,0,0
+Visual impairment,ocular,0,0
+Exposure during pregnancy,pregnancy_related,0,0
+Maternal exposure during pregnancy,pregnancy_related,0,0
+Product use issue,product_use_issue,0,0
+Medication error,product_use_issue,0,0
+Headache,disease_marker,0,1
+Papilloedema,disease_marker,0,1
+Intracranial pressure increased,disease_marker,0,1
+CSF pressure increased,disease_marker,0,1
